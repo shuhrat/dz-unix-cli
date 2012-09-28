@@ -90,10 +90,9 @@ if [[ ! -d $WORKING_DIR ]]; then
   exit 1
 else
   #get absolute path
-  WORKING_DIR=$(cd $(dirname $WORKING_DIR) && pwd)/$(basename $WORKING_DIR) 
+  WORKING_DIR=$(cd $WORKING_DIR && pwd)
   cd $WORKING_DIR
 fi
-
 
 #Check if working directory is tracking by VCS
 #If WORKING_DIR is repository root directory then copy|move files
@@ -109,12 +108,11 @@ case $VCS_NAME in
 
     #on move command just cleanup the repository
     if [[ $COMMAND == 'mv' ]]; then
-      git clean -d
+      git clean -d -f  > /dev/null 2>&1 #Force!
     fi
     ;;
 
   SVN )
-
     if ! svn info "$WORKING_DIR" &>/dev/null ; then
       echo "$WORKING_DIR has not SVN repository"
       exit 1
