@@ -33,7 +33,7 @@ EOF
 
 VERSION='0.0.5'
 
-VCS_NAME_DEFAULT='SVN'                # default VCS
+VCS_NAME_DEFAULT='GIT'                # default VCS
 COMMAND_DEFAULT='cp'                  # default command
 WORKING_DIR_DEFAULT=$PWD              # default working directory       
 OUTPUT_DIR_DEFAULT="$HOME/.Trash"     # default output path
