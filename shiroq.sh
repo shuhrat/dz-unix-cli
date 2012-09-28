@@ -122,7 +122,7 @@ case $VCS_NAME in
       COMMAND='cp -R' #@fixme
     fi
 
-    svn status | awk '{print $2}' | xargs -I {} -t $COMMAND "$WORKING_DIR$1"/{} "$OUTPUT_DIR" > /dev/null 2>&1
+    svn status | awk '{print $2}' | xargs -I {} $COMMAND "$WORKING_DIR/{}" "$OUTPUT_DIR" > /dev/null 2>&1
     ;;
 esac
 
