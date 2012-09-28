@@ -8,8 +8,7 @@
 
 См. также: [пост про домашние задания](http://clubs.ya.ru/4611686018427468886/replies.xml?item_no=450).
 
-shiroq
-======
+#shiroq
 
 ##Installation guide
 
