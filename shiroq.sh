@@ -105,7 +105,7 @@ case $VCS_NAME in
     fi
 
     #Hence we need to keep file structure use cpio
-    git ls-files --others --exclude-standard -z | cpio -pmdu0 "$OUTPUT_DIR"
+    git ls-files --others --exclude-standard -z | cpio -pmdu0 "$OUTPUT_DIR" > /dev/null 2>&1
 
     #on move command just cleanup the repository
     if [[ $COMMAND == 'mv' ]]; then
@@ -124,7 +124,7 @@ case $VCS_NAME in
       COMMAND='cp -R' #@fixme
     fi
 
-    svn status | awk '{print $2}' | xargs -I {} -t $COMMAND "$WORKING_DIR$1"/{} "$OUTPUT_DIR"
+    svn status | awk '{print $2}' | xargs -I {} -t $COMMAND "$WORKING_DIR$1"/{} "$OUTPUT_DIR" > /dev/null 2>&1
     ;;
 esac
 
